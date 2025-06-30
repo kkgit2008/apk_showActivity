@@ -1,5 +1,9 @@
 package com.fashare.activitytracker;
 
+//新增
+import android.content.ClipData;
+import android.content.ClipboardManager;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
@@ -38,6 +42,24 @@ public class FloatingView extends LinearLayout {
         mTvPackageName = (TextView) findViewById(R.id.tv_package_name);
         mTvClassName = (TextView) findViewById(R.id.tv_class_name);
         mIvClose = (ImageView) findViewById(R.id.iv_close);
+
+
+		//新增
+		mTvPackageName.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				Toast.makeText(mContext, "已复制第一行到剪贴板", Toast.LENGTH_SHORT).show();
+				((ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("package_name", mTvPackageName.getText().toString()));
+			}
+		});
+		mTvClassName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "已复制第二行到剪贴板", Toast.LENGTH_SHORT).show();
+                ((ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("class_name", mTvClassName.getText().toString()));
+            }
+        });
+
 
         mIvClose.setOnClickListener(new OnClickListener() {
             @Override
