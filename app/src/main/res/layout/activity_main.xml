@@ -9,16 +9,31 @@
     android:gravity="center"
     tools:context="com.fashare.activitytracker.MainActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorAccent"
+        android:text="需要开启以下权限，否则无法正常运行: \n\n1.显示悬浮窗(必须) \n2.无障碍功能(必须) \n3.写入剪贴板 \n\n"
+        android:textSize="16sp"/>
+<!--        
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/track"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="软件说明: \n一个全局的悬浮窗, 用于显示Activity信息"
+        android:textSize="16sp"/>
+-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="一个全局的悬浮窗, 显示栈顶 Activity 信息"
+        android:text="新功能: \n支持复制到剪贴板，只需在弹出的悬浮窗上点击文字即可。"
         android:textSize="16sp"/>
 
     <Button
@@ -27,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@color/colorPrimary"
-        android:text="开启悬浮窗"
-        android:textColor="@android:color/white"/>
+        android:text="打开"
+        android:textSize="30sp"/>
 
 
 </LinearLayout>
