@@ -11,13 +11,13 @@ import android.widget.Toast;
 public class AccessibilityUtil {
 
     public static boolean checkAccessibility(Context context) {
-        // 判断辅助功能是否开启
+        // 判断无障碍功能是否开启
         if (!AccessibilityUtil.isAccessibilitySettingsOn(context)) {
-            // 引导至辅助功能设置页面
+            // 引导至无障碍功能设置页面
             context.startActivity(
                     new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
             );
-            Toast.makeText(context, "请先开启 \"Activity 栈\" 的辅助功能", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "请先开启 \"showActivity\" 的无障碍功能", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
