@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="新功能: \n支持复制到剪贴板，只需在弹出的悬浮窗上点击文字即可。"
+        android:text="新功能: \n支持复制到剪贴板，\n只需在弹出的悬浮窗上点击文字即可。"
         android:textSize="16sp"/>
 
     <Button
