@@ -1,9 +1,9 @@
-xxxname: Android Build with SHA256
+name: Android Build with SHA256
 
 #支持在子目录构建，需修改后面的代码
 
-xxxon:
-  xxxpush:
+on:
+  push:
     #branches: [ "main","master","dev","release" ]
   workflow_dispatch:
 
