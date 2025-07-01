@@ -16,7 +16,7 @@ android {
 
     // ****** 设置自定义签名 ******
     signingConfigs {
-        debug {
+        release {
                 storeFile file('debug.keystore') 
                 storePassword 'android'
                 keyAlias 'androiddebugkey'
@@ -26,19 +26,20 @@ android {
 
     buildTypes { //NO.1
         debug {
-            signingConfig signingConfigs.debug
+            //signingConfig signingConfigs.release
             applicationIdSuffix '.debug'
             versionNameSuffix ' (debug)'
-    
         }
-        
+    	release {
+         	signingConfig signingConfigs.release
+        }
     }
     // ****** 设置自定义签名 ******    
 
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
