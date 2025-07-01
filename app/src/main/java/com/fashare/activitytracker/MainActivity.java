@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())),
                         REQUEST_CODE
                 );
-                Toast.makeText(this, "请先授予 \"Activity 栈\" 悬浮窗权限", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "请先授予 \"showActivity\" 悬浮窗权限", Toast.LENGTH_LONG).show();
             }
         }
     }
