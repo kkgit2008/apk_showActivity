@@ -3,6 +3,7 @@ package com.fashare.activitytracker;
 //新增
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.os.Looper;
 
 import android.content.Context;
 import android.content.Intent;
@@ -43,34 +44,57 @@ public class FloatingView extends LinearLayout {
         mTvClassName = (TextView) findViewById(R.id.tv_class_name);
         mIvClose = (ImageView) findViewById(R.id.iv_close);
 
-
-		//新增
-		mTvPackageName.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				Toast.makeText(mContext, "已复制第一行到剪贴板", Toast.LENGTH_SHORT).show();
-				((ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("package_name", mTvPackageName.getText().toString()));
-			}
-		});
-		mTvClassName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, "已复制第二行到剪贴板", Toast.LENGTH_SHORT).show();
-                ((ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("class_name", mTvClassName.getText().toString()));
-            }
-        });
-
-
         mIvClose.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "关闭悬浮框", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "关闭悬浮窗", Toast.LENGTH_SHORT).show();
                 mContext.startService(
                         new Intent(mContext, TrackerService.class)
                                 .putExtra(TrackerService.COMMAND, TrackerService.COMMAND_CLOSE)
                 );
             }
         });
+
+
+        // 新增剪贴板功能（优化版）
+        try {
+            final ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+            
+            mTvPackageName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (clipboard != null) {
+                        String text = mTvPackageName.getText().toString();
+                        ClipData clip = ClipData.newPlainText("package_name", text);
+                        clipboard.setPrimaryClip(clip);
+                        Toast.makeText(mContext, "已复制: " + text, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(mContext, "剪贴板不可用", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        
+            mTvClassName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (clipboard != null) {
+                        String text = mTvClassName.getText().toString();
+                        ClipData clip = ClipData.newPlainText("class_name", text);
+                        clipboard.setPrimaryClip(clip);
+                        Toast.makeText(mContext, "已复制: " + text, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(mContext, "剪贴板不可用", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } catch (Exception e) {
+            Log.e(TAG, "剪贴板操作失败: " + e.getMessage());
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                Toast.makeText(mContext, "复制失败，请重试", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
     }
 
     @Override
