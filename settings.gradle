@@ -1,44 +1,27 @@
 //The pluginManagement {} block must appear before any other statements in the script. 
 pluginManagement {
-  repositories {
-    	//always put snapshots first!!! 
-        maven { url = uri("https://maven.aliyun.com/repository/snapshots/") }
-        maven { url = uri("https://maven.aliyun.com/repository/public/") }
-        maven { url = uri("https://maven.aliyun.com/repository/google/") }
-        maven { url = uri("https://maven.aliyun.com/repository/jcenter/") }
-        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin/") }
-        maven { url = uri("https://dl.bintray.com/ppartisan/maven/") }
-        maven { url = uri("https://clojars.org/repo/") }
-        maven { url = uri("https://jitpack.io") }
-        
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        maven { url "https://maven.aliyun.com/repository/public" }
         //google()
-        //mavenLocal()
         mavenCentral()
-  }
+    }
 }
 
 dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) // 强制使用settings仓库
     
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) 
     //PREFER_PROJECT：		优先使用build.gradle中的repositories { }，忽略settings.gradle中的repositories { } ；
     //PREFER_SETTINGS：		优先使用settings.gradle中的repositories { } ，忽略build.gradle中的repositories { }；
     //FAIL_ON_PROJECT_REPOS：在build.gradle中声明的repositories { } 会导致编译错误
     
     repositories {
-    	//always put snapshots first!!! 
-        maven { url = uri("https://maven.aliyun.com/repository/snapshots/") }
-        maven { url = uri("https://maven.aliyun.com/repository/public/") }
-        maven { url = uri("https://maven.aliyun.com/repository/google/") }
-        maven { url = uri("https://maven.aliyun.com/repository/jcenter/") }
-        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin/") }
-        maven { url = uri("https://dl.bintray.com/ppartisan/maven/") }
-        maven { url = uri("https://clojars.org/repo/") }
-        maven { url = uri("https://jitpack.io") }
-        
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/google" }
         //google()
-        //mavenLocal()
         mavenCentral()
-  }
+        maven { url "https://jitpack.io" }
+    }
 }
 
 include ':app'
