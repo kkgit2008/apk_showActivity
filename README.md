@@ -1,3 +1,9 @@
+##新增功能:
+可复制到剪贴板。现在可以把检测到的activity复制到剪贴板了，保护视力👀从现在开始 ！ 
+
+
+
+
 # 写在前面
 - 接手陌生模块时，如何快速了解每个页面对应的类，以及它们之间的跳转逻辑。总不能在代码里一个一个地找`startActivity()`吧？
 
@@ -28,7 +34,7 @@ http://blog.csdn.net/a153614131/article/details/53891190
 <br/>
 
 # APK 下载体验
-[ActivityTracker.apk](https://github.com/fashare2015/ActivityTracker/blob/master/apk/app-debug.apk?raw=true)
+[ActivityTracker.apk](https://github.com/fashare2015/ActivityTracker/blob/master/apk/app-release.apk?raw=true)
 <br/>
 
 # 使用
