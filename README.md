@@ -6,19 +6,13 @@
 
 # 新版图片
 
-## 主界面
+## 主界面 + 悬浮窗1 + 悬浮窗2
 <p align="center">
-  <img src="picture/main.jpg" style="width: 50%;" />
-</p>
-
-## 悬浮窗1
-<p align="center">
-  <img src="picture/copy1.jpg" style="width: 50%;" />
-</p>
-
-## 悬浮窗2
-<p align="center">
-  <img src="picture/copy2.jpg" style="width: 50%;" />
+  <img src="picture/main.jpg" style="width: 30%;" />
+</p><p align="center">
+  <img src="picture/copy1.jpg" style="width: 30%;" />
+</p><p align="center">
+  <img src="picture/copy2.jpg" style="width: 30%;" />
 </p>
 
 # 
