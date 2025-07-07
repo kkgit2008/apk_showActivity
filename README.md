@@ -8,7 +8,7 @@
 
 ## 主界面 + 悬浮窗1 + 悬浮窗2
 
-<img src="picture/main.jpg" style="width: 30%;" /><img src="picture/copy1.jpg" style="width: 30%;" /><img src="picture/copy2.jpg" style="width: 30%;" />
+<img src="picture/main.jpg" style="width: 30%;" /> <img src="picture/copy1.jpg" style="width: 30%;" /> <img src="picture/copy2.jpg" style="width: 30%;" />
 
 # 
 # 
